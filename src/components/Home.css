@@ -710,6 +710,77 @@
   background: rgba(34, 211, 238, 0.2);
 }
 
+.cyber-text-gradient {
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.cyber-cta {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+}
+
+.cyber-cta:hover {
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.4) !important;
+}
+
+/* --- Automation Section --- */
+.section-automation {
+  padding: 6rem 1.5rem;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.automation-badge {
+  background: rgba(52, 211, 153, 0.15) !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+  color: #34d399 !important;
+}
+
+.automation-text-gradient {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.automation-content {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
+}
+
+.automation-content.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.automation-image-wrapper {
+  position: relative;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-out;
+}
+
+.automation-image-wrapper.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.automation-content .ai-feature-icon {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.2);
+}
+
+.automation-cta {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.automation-cta:hover {
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4) !important;
+}
+
 /* --- AI Solutions Section --- */
 .section-ai-solutions {
   padding: 6rem 1.5rem;

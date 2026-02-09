@@ -127,7 +127,7 @@ export default function Home() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
 
-    const elements = document.querySelectorAll('.service-card, .ai-content, .ai-image-wrapper, .cyber-content, .cyber-image-wrapper')
+    const elements = document.querySelectorAll('.service-card, .ai-content, .ai-image-wrapper, .cyber-content, .cyber-image-wrapper, .automation-content, .automation-image-wrapper')
     elements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
@@ -417,7 +417,7 @@ export default function Home() {
               </span>
               <h2 className="ai-title">
                 Cyber Security <br />
-                <span className="text-gradient">ระดับมืออาชีพ</span>
+                <span className="text-gradient cyber-text-gradient">ระดับมืออาชีพ</span>
               </h2>
               <p className="ai-desc">
                 ผู้นำด้านโซลูชันรักษาความปลอดภัยออนไลน์ ปกป้องธุรกิจและข้อมูล
@@ -463,9 +463,83 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href="#contact" className="cta-primary">
+              <a href="#contact" className="cta-primary cyber-cta">
                 รับคำปรึกษาฟรี
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Automation */}
+      <section id="automation" className="section section-automation">
+        <div className="container">
+          <div className="ai-solutions-grid automation-grid">
+            <div className="automation-content">
+              <span className="ai-badge automation-badge">
+                <span className="ai-badge-icon">⚙️</span> Automation
+              </span>
+              <h2 className="ai-title">
+                Automation <br />
+                <span className="text-gradient automation-text-gradient">ระดับองค์กร</span>
+              </h2>
+              <p className="ai-desc">
+                ผู้เชี่ยวชาญด้านระบบอัตโนมัติที่ช่วยเพิ่มประสิทธิภาพการทำงาน ลดต้นทุน
+                และยกระดับธุรกิจด้วยเทคโนโลยีอัจฉริยะ
+              </p>
+
+              <div className="ai-features">
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 14 4-4"></path><path d="M3.34 7 5 9"></path><path d="M16 2 9 9"></path><path d="M9 22 16 15"></path><circle cx="6.5" cy="11.5" r="2.5"></circle><path d="m14.31 16 5.74-7.94"></path><path d="m20.05 17.94-5.74-7.94"></path><circle cx="15" cy="7" r="3"></circle></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>ทำงานเร็วขึ้น</h3>
+                    <p>ประหยัดเวลาด้วยระบบอัตโนมัติ</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>เพิ่มประสิทธิภาพ</h3>
+                    <p>ลดข้อผิดพลาดและเพิ่มความแม่นยำ</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>ประหยัดต้นทุน</h3>
+                    <p>ลดค่าใช้จ่ายในระยะยาว</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"></path><path d="M9 12H4v3"></path><path d="M15 12h5v-3"></path><path d="M4 17v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M9 7v5l5 5h5"></path></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Workflow Design</h3>
+                    <p>ออกแบบกระบวนการที่เหมาะสม</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#contact" className="cta-primary automation-cta">
+                รับคำปรึกษาฟรี
+              </a>
+            </div>
+
+            <div className="automation-image-wrapper">
+              <div className="ai-image-container">
+                <img
+                  src="/services/automation1.jpg"
+                  alt="Automation"
+                  className="ai-main-image"
+                />
+              </div>
             </div>
           </div>
         </div>
