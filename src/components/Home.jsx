@@ -22,21 +22,25 @@ const mainServices = [
     title: 'AI Solutions',
     desc: 'โซลูชันปัญญาประดิษฐ์',
     icon: '🧠',
+    image: '/services/ai.jpg',
   },
   {
     title: 'Digital Marketing',
     desc: 'การตลาดออนไลน์ครบวงจร',
     icon: '📱',
+    image: '/services/marketing.jpg',
   },
   {
     title: 'Cyber Security',
     desc: 'ความปลอดภัยไซเบอร์',
     icon: '🔒',
+    image: '/services/security.jpg',
   },
   {
     title: 'Automation',
     desc: 'ระบบอัตโนมัติ',
     icon: '⚙️',
+    image: '/services/automation.jpg',
   },
 ]
 
@@ -190,9 +194,13 @@ export default function Home() {
           <div className="services-grid">
             {mainServices.map((s) => (
               <div key={s.title} className="service-card">
-                <span className="service-icon">{s.icon}</span>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
+                <div className="service-card-image">
+                  <img src={s.image} alt={s.title} />
+                </div>
+                <div className="service-card-content">
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
