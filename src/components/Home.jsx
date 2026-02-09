@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Home.css'
 
 const navItems = [
@@ -41,6 +41,18 @@ const mainServices = [
     desc: 'ระบบอัตโนมัติ',
     icon: '⚙️',
     image: '/services/automation.jpg',
+  },
+  {
+    title: 'Specialist',
+    desc: 'ทีมวิทยากรที่มีประสบการณ์ตรงและผ่านการทำงานจริง',
+    icon: '👨‍🏫',
+    image: '/services/professional expert.jpg',
+  },
+  {
+    title: 'Monitoring & Support',
+    desc: 'มีการติดตามและให้คำปรึกษาหลังการอบรม',
+    icon: '📊',
+    image: '/services/Follow up.jpg',
   },
 ]
 
@@ -100,6 +112,26 @@ const blogPosts = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view')
+          } else {
+            entry.target.classList.remove('in-view')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    const elements = document.querySelectorAll('.service-card, .ai-content, .ai-image-wrapper, .cyber-content, .cyber-image-wrapper')
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="home">
@@ -221,26 +253,221 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service categories */}
-      <section id="services" className="section section-categories">
+      {/* AI Solutions */}
+      <section id="ai-solutions" className="section section-ai-solutions">
         <div className="container">
-          <h2 className="section-title">ประเภทบริการ</h2>
-          <div className="categories-grid">
-            {serviceCategories.map((cat) => (
-              <div key={cat.title} className="category-card">
-                <span className="category-icon">{cat.icon}</span>
-                <h3>{cat.title}</h3>
-                <ul>
-                  {cat.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+          <div className="ai-solutions-grid">
+            <div className="ai-content">
+              <span className="ai-badge">
+                <span className="ai-badge-icon">⚛</span> Artificial Intelligence
+              </span>
+              <h2 className="ai-title">
+                AI Solutions <br />
+                <span className="text-gradient">ที่ล้ำหน้า</span>
+              </h2>
+              <p className="ai-desc">
+                ผู้นำด้านโซลูชัน AI และ Machine Learning ที่ช่วยให้ธุรกิจ ของคุณฉลาดขึ้น
+                แม่นยำขึ้น และเติบโตอย่างยั่งยืน
+              </p>
+
+              <div className="ai-features">
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-4A2.5 2.5 0 0 1 9.5 2Z" />
+                      <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-4A2.5 2.5 0 0 0 14.5 2Z" />
+                      <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+                      <circle cx="12" cy="6" r="1" fill="currentColor" stroke="none" />
+                      <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none" />
+                      <path d="M8 12h8" />
+                    </svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Machine Learning</h3>
+                    <p>วิเคราะห์ข้อมูลอัจฉริยะ</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 8V4H8" />
+                      <rect width="16" height="12" x="4" y="8" rx="2" />
+                      <path d="M2 14h2" />
+                      <path d="M20 14h2" />
+                      <path d="M15 13v2" />
+                      <path d="M9 13v2" />
+                    </svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>AI Chatbot</h3>
+                    <p>ตอบคำถามลูกค้าอัตโนมัติ</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <path d="M16 13l-4 4-2-2-2 2" />
+                      <path d="m8 13 2 2 4-4" />
+                    </svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Predictive Analytics</h3>
+                    <p>ใชช่วยธุรกิจให้ฉลาดขึ้น</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z" opacity="0.1" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                      <text x="12" y="15" fontSize="8" fontWeight="bold" textAnchor="middle" fill="currentColor" stroke="none">AI</text>
+                    </svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>AI Tools</h3>
+                    <p>เครื่องมือ AI สำหรับการตลาด</p>
+                  </div>
+                </div>
               </div>
-            ))}
+
+              <a href="#contact" className="cta-primary">
+                รับคำปรึกษาฟรี
+              </a>
+            </div>
+
+            <div className="ai-image-wrapper">
+              <div className="ai-image-container">
+                <img
+                  src="/services/AI And Technology.jpg"
+                  alt="AI Solutions"
+                  className="ai-main-image"
+                />
+
+              </div>
+            </div>
           </div>
-          <p className="categories-note">
-            Digital Marketing ครอบคลุมในหน้า Services
-          </p>
+        </div>
+      </section>
+
+      {/* Cyber Security */}
+      <section id="cyber-security" className="section section-cyber-security">
+        <div className="container">
+          <div className="cyber-solutions-grid">
+            <div className="cyber-image-wrapper">
+              <div className="ai-image-container">
+                <img
+                  src="/services/securityCyber Security.jpg"
+                  alt="Cyber Security"
+                  className="ai-main-image"
+                />
+              </div>
+            </div>
+
+            <div className="cyber-content">
+              <span className="ai-badge cyber-badge">
+                <span className="ai-badge-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.9 14.41L6.75 13.06l1.41-1.41 1.94 1.94 5.25-5.25 1.41 1.41-6.66 6.66z" />
+                  </svg>
+                </span> Cyber Security
+              </span>
+              <h2 className="ai-title">
+                Cyber Security <br />
+                <span className="text-gradient">ระดับมืออาชีพ</span>
+              </h2>
+              <p className="ai-desc">
+                ผู้นำด้านโซลูชันรักษาความปลอดภัยออนไลน์ ปกป้องธุรกิจและข้อมูล
+                ด้วยเทคโนโลยีล้ำสมัยและมาตรฐานระดับสากล
+              </p>
+
+              <div className="ai-features">
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Risk Assessment</h3>
+                    <p>วิเคราะห์และประเมินช่องโหว่ด้านความปลอดภัย</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Preventive Measures</h3>
+                    <p>แนะนำระบบรักษาความปลอดภัยที่เหมาะสม</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Data Protection</h3>
+                    <p>ปกป้องข้อมูลสำคัญจากการโจรกรรม</p>
+                  </div>
+                </div>
+                <div className="ai-feature-card">
+                  <div className="ai-feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  </div>
+                  <div className="ai-feature-text">
+                    <h3>Incident Response</h3>
+                    <p>วางแผนรับมือเหตุการณ์ด้านความปลอดภัย</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#contact" className="cta-primary">
+                รับคำปรึกษาฟรี
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
