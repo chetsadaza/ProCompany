@@ -135,7 +135,7 @@
 /* --- Hero --- */
 .hero {
   position: relative;
-  min-height: 120vh;
+  min-height: 140vh;
   display: flex;
   align-items: center;
   padding: 10rem 1.5rem 15rem;
@@ -160,8 +160,8 @@
   left: 0;
   right: 0;
   z-index: 0;
-  padding: 28rem 1.5rem 2rem;
-  margin-top: 6rem;
+  padding: 60rem 1.5rem 2rem;
+  margin-top: 15rem;
 }
 
 .hero-trusted-title {
