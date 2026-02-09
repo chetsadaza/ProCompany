@@ -135,10 +135,10 @@
 /* --- Hero --- */
 .hero {
   position: relative;
-  min-height: 130vh;
+  min-height: 120vh;
   display: flex;
-  align-items: flex-start;
-  padding: 8rem 1.5rem 20rem;
+  align-items: center;
+  padding: 10rem 1.5rem 15rem;
   overflow: hidden;
 }
 
@@ -251,15 +251,15 @@
 }
 
 .hero-title {
-  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  font-weight: 850;
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
   color: #f8fafc;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   animation: hero-fade-up 0.7s ease-out forwards;
   opacity: 0;
-  text-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+  text-shadow: 0 0 50px rgba(99, 102, 241, 0.2);
 }
 
 .hero-title-accent {
@@ -272,10 +272,10 @@
 }
 
 .hero-desc {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--color-text-muted);
-  line-height: 1.65;
-  margin: 0 0 2rem;
+  line-height: 1.7;
+  margin: 0 0 2.5rem;
   animation: hero-fade-up 0.7s ease-out 0.1s forwards;
   opacity: 0;
 }
@@ -338,14 +338,14 @@
 }
 
 .hero-stat-value {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 900;
   color: var(--color-text);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .hero-stat-label {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
 }
 
@@ -363,23 +363,49 @@
 .hero-trust-card {
   position: absolute;
   right: 0;
-  width: min(100%, 300px);
-  padding: 1.35rem 1.5rem;
-  background: rgba(30, 27, 75, 0.35);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
+  width: min(100%, 340px);
+  padding: 1.5rem 1.75rem;
+  background: rgba(30, 27, 75, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.25rem;
   opacity: 0;
   transform-style: preserve-3d;
   animation: hero-fade-up 0.6s ease-out forwards;
+}
+
+.hero-trust-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 58, 138, 0.65);
+  /* Dark Blue Theme */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* More defined border */
+}
+
+.hero-trust-gif {
+  width: 80%;
+  /* Slightly smaller for padding */
+  height: 80%;
+  object-fit: contain;
+  filter: invert(0.9) hue-rotate(180deg) brightness(1.2);
+  /* Make dark on white -> bright on dark */
+  mix-blend-mode: screen;
+  /* Remove black background to blend with blue */
 }
 
 .hero-trust-card:nth-child(1) {

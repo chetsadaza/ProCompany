@@ -10,7 +10,7 @@ const navItems = [
 ]
 
 const heroTrustCards = [
-  { value: '100%', label: 'ทำงานจริงจัง', icon: 'bolt', color: 'purple' },
+  { value: '100%', label: 'ทำงานจริงจัง', icon: '/GIF/checklist.gif', color: 'purple' },
   { value: '10+', label: 'ผู้เชี่ยวชาญ', icon: 'experts', color: 'green' },
   { value: 'คุณภาพ', label: 'ประกันผลงาน', icon: 'shield', color: 'pink' },
 ]
@@ -205,7 +205,13 @@ export default function Home() {
           <div className="hero-cards">
             {heroTrustCards.map((card) => (
               <div key={card.label} className={`hero-trust-card hero-trust-card--${card.color}`}>
-                <span className="hero-trust-icon" data-icon={card.icon} aria-hidden="true" />
+                <div className="hero-trust-icon-wrapper">
+                  {card.icon.endsWith('.gif') ? (
+                    <img src={card.icon} alt="" className="hero-trust-gif" />
+                  ) : (
+                    <span className="hero-trust-icon" data-icon={card.icon} aria-hidden="true" />
+                  )}
+                </div>
                 <div className="hero-trust-text">
                   <span className="hero-trust-value">{card.value}</span>
                   <span className="hero-trust-label">{card.label}</span>
