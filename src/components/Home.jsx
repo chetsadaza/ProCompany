@@ -11,8 +11,8 @@ const navItems = [
 
 const heroTrustCards = [
   { value: '100%', label: 'ทำงานจริงจัง', icon: '/GIF/checklist.gif', color: 'purple' },
-  { value: '10+', label: 'ผู้เชี่ยวชาญ', icon: 'experts', color: 'green' },
-  { value: 'คุณภาพ', label: 'ประกันผลงาน', icon: 'shield', color: 'pink' },
+  { value: '10+', label: 'ผู้เชี่ยวชาญ', icon: '/GIF/handshake.gif', color: 'green' },
+  { value: 'คุณภาพ', label: 'ประกันผลงาน', icon: '/GIF/award.gif', color: 'pink' },
 ]
 
 const carouselImages = ['/carousel/1.png', '/carousel/2.png', '/carousel/3.png']
@@ -127,7 +127,7 @@ export default function Home() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
 
-    const elements = document.querySelectorAll('.service-card, .ai-content, .ai-image-wrapper, .cyber-content, .cyber-image-wrapper, .automation-content, .automation-image-wrapper')
+    const elements = document.querySelectorAll('.service-card, .ai-content, .ai-image-wrapper, .cyber-content, .cyber-image-wrapper, .automation-content, .automation-image-wrapper, .blog-card')
     elements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
@@ -184,7 +184,8 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-content">
             <h1 className="hero-title">
-              ผู้นำด้าน <span className="hero-title-accent">AI</span> การตลาด & เทคโนโลยี
+              ผู้นำด้าน <span className="hero-title-accent">AI</span><br />
+              <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>การตลาด & เทคโนโลยี</span>
             </h1>
             <p className="hero-desc">
               นำเสนอโซลูชัน AI, Digital Marketing, Cyber Security และ Automation เพื่อยกระดับธุรกิจของคุณสู่อนาคต
@@ -245,19 +246,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section section-stats">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((s) => (
-              <div key={s.label} className="stat-item">
-                <span className="stat-value">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* AI Solutions */}
       <section id="ai-solutions" className="section section-ai-solutions">
@@ -562,7 +550,13 @@ export default function Home() {
           </header>
           <div className="blog-grid">
             {blogPosts.map((post, i) => (
-              <article key={i} className="blog-card">
+              <article
+                key={i}
+                className={`blog-card ${i === 0 ? 'blog-card--left' :
+                  i === 1 ? 'blog-card--middle' :
+                    'blog-card--right'
+                  }`}
+              >
                 <div className="blog-card-image" aria-hidden="true" />
                 <span className="blog-card-tag">{post.categoryTag}</span>
                 <h3 className="blog-card-title">{post.title}</h3>

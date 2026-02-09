@@ -389,12 +389,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 58, 138, 0.65);
-  /* Dark Blue Theme */
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  /* More defined border */
+  background: rgba(0, 0, 0, 0.4);
+  /* Default dark fallback */
+}
+
+/* Themed Wrapper Backgrounds */
+.hero-trust-card--purple .hero-trust-icon-wrapper {
+  background: rgba(30, 58, 138, 0.65);
+  /* Deep Blue for checklist */
+}
+
+.hero-trust-card--green .hero-trust-icon-wrapper {
+  background: rgba(6, 78, 59, 0.65);
+  /* Forest Green for handshake */
+}
+
+.hero-trust-card--pink .hero-trust-icon-wrapper {
+  background: rgba(131, 24, 67, 0.65);
+  /* Deep Pink/Maroon for award */
 }
 
 .hero-trust-gif {
@@ -1108,36 +1123,6 @@
   margin: 0;
 }
 
-/* --- Stats --- */
-.section-stats {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.06) 100%);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-
-.stat-item {
-  padding: 1rem;
-}
-
-.stat-value {
-  display: block;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--color-primary);
-  line-height: 1.2;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-}
 
 @media (max-width: 500px) {
   .stats-grid {
@@ -1238,13 +1223,32 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  opacity: 0;
+}
+
+.blog-card--left {
+  transform: translateX(-100px);
+}
+
+.blog-card--right {
+  transform: translateX(100px);
+}
+
+.blog-card--middle {
+  transform: translateY(30px);
+  transition-delay: 0.2s;
+}
+
+.blog-card.in-view {
+  opacity: 1;
+  transform: translate(0);
 }
 
 .blog-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.02) !important;
   border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 0 12px 32px rgba(99, 102, 241, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.1);
 }
