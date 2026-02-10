@@ -225,7 +225,7 @@ export default function Home() {
           <p className="hero-trusted-sub">ร่วมงานกับองค์กรและธุรกิจต่างๆ</p>
           <div className="hero-carousel" aria-hidden="true">
             <div className="hero-carousel-track">
-              {[...carouselImages, ...carouselImages].map((src, i) => (
+              {[...carouselImages, ...carouselImages, ...carouselImages, ...carouselImages].map((src, i) => (
                 <div key={i} className="hero-carousel-item">
                   <img src={src} alt="" />
                 </div>
