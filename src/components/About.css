@@ -1,0 +1,122 @@
+.about-page {
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Header height */
+}
+
+/* Reuse styles from previous implementation */
+.section-about {
+    padding: 8rem 0;
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-subtitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about-content p {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: rgba(30, 27, 75, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.about-stat-card {
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.about-stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.about-stat-value {
+    font-size: 2.5rem;
+    font-weight: 850;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 10px var(--color-primary-glow));
+}
+
+.about-stat-label {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 2rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-stats-grid {
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+
+    .about-stat-value {
+        font-size: 2rem;
+    }
+}

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 const navItems = [
-  { label: 'หน้าแรก', href: '#hero' },
-  { label: 'เกี่ยวกับเรา', href: '#services' },
+  { label: 'หน้าแรก', href: '/' },
+  { label: 'เกี่ยวกับเรา', href: '/about' },
   { label: 'บริการ', href: '#services' },
   { label: 'ผลงาน', href: '#blog' },
   { label: 'ติดต่อเรา', href: '#contact' },
@@ -138,7 +139,7 @@ export default function Home() {
       {/* Navigation */}
       <header className="header">
         <div className="header-inner">
-          <a href="#hero" className="logo-text">CDM</a>
+          <Link to="/" className="logo-text">CDM</Link>
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -150,13 +151,23 @@ export default function Home() {
           </button>
           <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.href.startsWith('#') ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
               ปรึกษาฟรี
