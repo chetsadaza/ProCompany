@@ -1,9 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import './Services.css'
 
 export default function Services() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
+    const targetRef = useRef(null)
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768)
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    // Connect scroll to the targetRef
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start start", "end end"] // When section starts being sticky until it ends
+    })
+
+    // Transform scroll progress to horizontal translation
+    // Mobile needs to scroll further because the track is much longer relative to the viewport
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "-90%" : "-55%"])
 
     const solutions = [
         {
@@ -165,26 +186,35 @@ export default function Services() {
                 </p>
             </section>
 
-            {/* Solutions Grid */}
-            <div className="solutions-grid">
-                {solutions.map((item, index) => (
-                    <div key={index} className="solution-card">
-                        <div className="solution-header">
-                            <h3 className="solution-title">{item.title}</h3>
-                            <p className="solution-desc">{item.desc}</p>
-                        </div>
-                        <ul className="solution-items">
-                            {item.items.map((subItem, idx) => (
-                                <li key={idx}>{subItem}</li>
-                            ))}
-                        </ul>
-                        <div className="solution-actions">
-                            <a href="#quote" className="btn-outline">สอบถามราคา</a>
-                            <a href="#consult" className="btn-primary">รับคำปรึกษา</a>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            {/* Horizontal Scroll Section */}
+            <section ref={targetRef} className="horizontal-scroll-section">
+                <div className="sticky-wrapper">
+                    <motion.div
+                        style={{ x }}
+                        className="horizontal-track"
+                    >
+                        {solutions.map((item, index) => (
+                            <div key={index} className="horizontal-card">
+                                <div className="h-card-content">
+                                    <div className="h-card-header">
+                                        <h3 className="h-card-title">{item.title}</h3>
+                                        <p className="h-card-desc">{item.desc}</p>
+                                    </div>
+                                    <ul className="h-card-items">
+                                        {item.items.map((subItem, idx) => (
+                                            <li key={idx}>{subItem}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="h-card-actions">
+                                    <a href="#quote" className="btn-outline">สอบถามราคา</a>
+                                    <a href="#consult" className="btn-primary">รับคำปรึกษา</a>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
 
             {/* Why Choose Us */}
             <section className="why-us-section">
