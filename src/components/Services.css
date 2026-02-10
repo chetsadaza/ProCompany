@@ -1,0 +1,166 @@
+/* --- Variables (Copied/Adapted from Home.css for consistency) --- */
+.services-page {
+    --color-bg: #0B1120;
+    --color-surface: #111827;
+    --color-primary: #6366f1;
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-border: rgba(148, 163, 184, 0.12);
+    --font-sans: 'Sarabun', 'IBM Plex Sans Thai', system-ui, sans-serif;
+    --container: min(1200px, 92vw);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+}
+
+/* Reuse Header/Nav styles or assume they are global if not scoped. 
+   Since Home.css had them scoped to .header, we need them here too 
+   if we are duplicating the Nav. */
+.services-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(11, 17, 32, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.services-header-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.services-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.services-nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: color 0.2s, background 0.2s;
+}
+
+.services-nav a:hover,
+.services-nav a.active {
+    color: var(--color-primary);
+    background: rgba(99, 102, 241, 0.12);
+}
+
+.services-nav-cta {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1.25rem !important;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    border-radius: 999px;
+}
+
+/* Hero Section */
+.services-hero {
+    padding: 12rem 1.5rem 6rem;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15), transparent 70%);
+}
+
+.services-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.services-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+/* Services Grid */
+.services-grid-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-item-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.service-item-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-primary);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.service-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.service-desc {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+/* Footer */
+.services-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-header-inner {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .services-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

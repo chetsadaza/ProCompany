@@ -5,7 +5,7 @@ import './Home.css'
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
   { label: 'เกี่ยวกับเรา', href: '/about' },
-  { label: 'บริการ', href: '#services' },
+  { label: 'บริการ', href: '/services' },
   { label: 'ผลงาน', href: '#blog' },
   { label: 'ติดต่อเรา', href: '#contact' },
 ]
