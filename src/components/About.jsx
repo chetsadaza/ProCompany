@@ -158,6 +158,7 @@ export default function About() {
                 </div>
             </section>
 
+
             {/* Core Values Section */}
             <section className="section section-values">
                 <div className="container">
@@ -173,6 +174,50 @@ export default function About() {
                                 <p>{value.desc}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Vision & Mission Section */}
+            <section className="section section-vision-mission">
+                <div className="container">
+                    <div className="vision-mission-grid">
+                        <div className="vision-card animate-fade-up delay-1">
+                            <h2 className="vision-mission-title">วิสัยทัศน์</h2>
+                            <p className="vision-mission-text">
+                                เป็นบริษัทที่ให้บริการฝึกอบรมและให้คำปรึกษาด้านการตลาดออนไลน์ที่มีคุณภาพและได้มาตรฐาน
+                                ช่วยให้ธุรกิจไทยสามารถแข่งขันได้ในยุคดิจิทัล
+                            </p>
+                        </div>
+                        <div className="mission-card animate-fade-up delay-2">
+                            <h2 className="vision-mission-title">พันธกิจ</h2>
+                            <ul className="mission-list">
+                                <li>
+                                    <span className="mission-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </span>
+                                    สร้างสรรค์เนื้อหาคุณภาพที่ตอบโจทย์ลูกค้า
+                                </li>
+                                <li>
+                                    <span className="mission-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </span>
+                                    พัฒนาทีมงานให้เป็นมืออาชีพระดับสากล
+                                </li>
+                                <li>
+                                    <span className="mission-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </span>
+                                    สร้างความสัมพันธ์ระยะยาวกับลูกค้า
+                                </li>
+                                <li>
+                                    <span className="mission-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </span>
+                                    นำเทคโนโลยีใหม่ๆ มาใช้อย่างมีประสิทธิภาพ
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
