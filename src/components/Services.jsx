@@ -160,17 +160,27 @@ export default function Services() {
             <header className="services-header">
                 <div className="services-header-inner">
                     <Link to="/" className="logo-text">CDM</Link>
+                    <button
+                        className="menu-toggle"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        aria-label="เมนู"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <nav className={`services-nav ${menuOpen ? 'nav-open' : ''}`}>
                         {navItems.map((item) => (
                             <Link
                                 key={item.label}
                                 to={item.href}
                                 className={item.active ? 'active' : ''}
+                                onClick={() => setMenuOpen(false)}
                             >
                                 {item.label}
                             </Link>
                         ))}
-                        <Link to="/#contact" className="services-nav-cta">
+                        <Link to="/#contact" className="services-nav-cta" onClick={() => setMenuOpen(false)}>
                             ปรึกษาฟรี
                         </Link>
                     </nav>

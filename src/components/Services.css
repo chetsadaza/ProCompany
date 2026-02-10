@@ -73,6 +73,23 @@
     border-radius: 999px;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 1px;
+}
+
 /* Hero Section */
 .services-hero {
     padding: 12rem 1.5rem 6rem;
@@ -349,18 +366,60 @@
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 768px) {
     .services-header-inner {
-        flex-direction: column;
-        gap: 1rem;
+        /* Keep row layout for logo and toggle */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     .services-nav {
-        flex-wrap: wrap;
-        justify-content: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(17, 24, 39, 0.95);
+        /* Match color-surface */
+        backdrop-filter: blur(14px);
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-border);
+        display: none;
+        align-items: stretch;
+        /* Stack items full width */
+        gap: 0.5rem;
+    }
+
+    .services-nav.nav-open {
+        display: flex;
+    }
+
+    .services-nav a {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .services-nav-cta {
+        margin-left: 0;
+        text-align: center;
+        display: block;
     }
 
     .services-title {
         font-size: 2rem;
+    }
+
+    /* Keep the card adjustments */
+    .horizontal-card {
+        flex: 0 0 85vw;
+        /* Adjust width for mobile */
+        height: auto;
+        min-height: 450px;
     }
 }
