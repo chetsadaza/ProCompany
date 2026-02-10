@@ -168,19 +168,7 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="hero">
         <div className="hero-bg" aria-hidden="true" />
-        <div className="hero-trusted">
-          <h2 className="hero-trusted-title">ลูกค้าที่ไว้วางใจเรา</h2>
-          <p className="hero-trusted-sub">ร่วมงานกับองค์กรและธุรกิจต่างๆ</p>
-          <div className="hero-carousel" aria-hidden="true">
-            <div className="hero-carousel-track">
-              {[...carouselImages, ...carouselImages].map((src, i) => (
-                <div key={i} className="hero-carousel-item">
-                  <img src={src} alt="" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
         <div className="hero-inner">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -219,6 +207,19 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+        <div className="hero-trusted">
+          <h2 className="hero-trusted-title">ลูกค้าที่ไว้วางใจเรา</h2>
+          <p className="hero-trusted-sub">ร่วมงานกับองค์กรและธุรกิจต่างๆ</p>
+          <div className="hero-carousel" aria-hidden="true">
+            <div className="hero-carousel-track">
+              {[...carouselImages, ...carouselImages].map((src, i) => (
+                <div key={i} className="hero-carousel-item">
+                  <img src={src} alt="" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

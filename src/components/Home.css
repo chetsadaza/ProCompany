@@ -137,8 +137,9 @@
   position: relative;
   min-height: 140vh;
   display: flex;
-  align-items: center;
-  padding: 10rem 1.5rem 15rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10rem 1.5rem 4rem;
   overflow: hidden;
 }
 
@@ -160,8 +161,8 @@
   left: 0;
   right: 0;
   z-index: 0;
-  padding: 60rem 1.5rem 2rem;
-  margin-top: 15rem;
+  padding: 6rem 1.5rem 4rem;
+  margin-top: 10rem;
 }
 
 .hero-trusted-title {
@@ -169,7 +170,7 @@
   font-weight: 700;
   color: #f8fafc;
   text-align: center;
-  margin: 6rem 0 0.75rem;
+  margin: 2rem 0 0.75rem;
   text-shadow: 0 0 24px rgba(99, 102, 241, 0.15);
 }
 
@@ -649,12 +650,20 @@
     margin: 0 auto;
   }
 
-  .hero-trust-card:nth-child(2) {
+  .hero-trust-card:nth-child(2),
+  .hero-trust-card:nth-child(3) {
     margin-top: 1.25rem;
   }
 
-  .hero-trust-card:nth-child(3) {
-    margin-top: 1.25rem;
+  .hero-trusted {
+    position: relative !important;
+    bottom: auto;
+    padding: 8rem 1.5rem 4rem;
+    margin-top: 4rem;
+  }
+
+  .hero-trusted-title {
+    margin-top: 2rem;
   }
 }
 
