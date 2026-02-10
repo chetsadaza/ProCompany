@@ -144,7 +144,6 @@
 
 .horizontal-card {
     flex: 0 0 400px;
-    /* Fixed width for cards */
     background: rgba(17, 24, 39, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(148, 163, 184, 0.15);
@@ -154,7 +153,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: 500px;
-    /* Fixed height for consistency */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
@@ -333,14 +331,60 @@
 .why-us-item {
     text-align: center;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(23, 23, 23, 0.4);
+    /* Darker base */
     border-radius: 16px;
-    border: 1px solid transparent;
-    transition: border-color 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Spotlight effect */
+.why-us-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.why-us-item:hover::before {
+    opacity: 1;
 }
 
 .why-us-item:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Text Reveal Effect */
+.why-us-item h3,
+.why-us-item p {
+    opacity: 0.2;
+    /* Dim text initially */
+    transform: translateY(10px);
+    /* Push down slightly */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    filter: blur(2px);
+    /* Add slight blur for mystery */
+}
+
+/* Reveal on Hover */
+.why-us-item:hover h3,
+.why-us-item:hover p {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
 }
 
 .why-us-item h3 {
@@ -348,11 +392,15 @@
     font-weight: 700;
     color: #fff;
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
 .why-us-item p {
     color: var(--color-text-muted);
     line-height: 1.6;
+    position: relative;
+    z-index: 2;
 }
 
 /* Footer (Simple) */

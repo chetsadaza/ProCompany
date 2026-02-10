@@ -233,9 +233,22 @@ export default function Services() {
                     <p className="why-us-subtitle">เราคือพันธมิตรเทคโนโลยีที่ขับเคลื่อนธุรกิจของคุณสู่อนาคต</p>
                     <div className="why-us-grid">
                         {whyChooseUs.map((item, index) => (
-                            <div key={index} className="why-us-item">
-                                <h3>{item.title}</h3>
-                                <p>{item.desc}</p>
+                            <div
+                                key={index}
+                                className="why-us-item"
+                                onMouseMove={(e) => {
+                                    const { currentTarget: target } = e
+                                    const rect = target.getBoundingClientRect()
+                                    const x = e.clientX - rect.left
+                                    const y = e.clientY - rect.top
+                                    target.style.setProperty('--mouse-x', `${x}px`)
+                                    target.style.setProperty('--mouse-y', `${y}px`)
+                                }}
+                            >
+                                <div className="why-us-content">
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
