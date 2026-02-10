@@ -7,7 +7,7 @@ const navItems = [
   { label: 'หน้าแรก', href: '/' },
   { label: 'เกี่ยวกับเรา', href: '/about' },
   { label: 'บริการ', href: '/services' },
-  { label: 'ผลงาน', href: '#blog' },
+  { label: 'ผลงาน', href: '/portfolio' },
   { label: 'ติดต่อเรา', href: '#contact' },
 ]
 
