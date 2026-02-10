@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import './Services.css'
 
@@ -7,6 +7,7 @@ export default function Services() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
     const targetRef = useRef(null)
+    const location = useLocation()
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -149,7 +150,7 @@ export default function Services() {
     const navItems = [
         { label: 'หน้าแรก', href: '/' },
         { label: 'เกี่ยวกับเรา', href: '/about' },
-        { label: 'บริการ', href: '/services', active: true },
+        { label: 'บริการ', href: '/services' },
         { label: 'ผลงาน', href: '/#blog' },
         { label: 'ติดต่อเรา', href: '/#contact' },
     ]
@@ -174,7 +175,7 @@ export default function Services() {
                             <Link
                                 key={item.label}
                                 to={item.href}
-                                className={item.active ? 'active' : ''}
+                                className={location.pathname === item.href ? 'active' : ''}
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {item.label}
@@ -189,7 +190,7 @@ export default function Services() {
 
             {/* Hero Section */}
             <section className="services-hero">
-                <h1 className="services-title">โซลูชันของเรา</h1>
+                <h1 className="services-title">Our <span className="services-title-accent">Solutions</span></h1>
                 <p className="services-subtitle">
                     โซลูชันครบวงจรด้าน AI, Digital Marketing, Cyber Security และ Automation <br />
                     เพื่อยกระดับธุรกิจของคุณสู่ยุคดิจิทัล
