@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
+import NumberCounter from './NumberCounter'
 
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
@@ -11,9 +12,9 @@ const navItems = [
 ]
 
 const heroTrustCards = [
-  { value: '100%', label: 'ทำงานจริงจัง', icon: '/GIF/checklist.gif', color: 'purple' },
-  { value: '10+', label: 'ผู้เชี่ยวชาญ', icon: '/GIF/handshake.gif', color: 'green' },
-  { value: 'คุณภาพ', label: 'ประกันผลงาน', icon: '/GIF/award.gif', color: 'pink' },
+  { value: 100, suffix: '%', label: 'ทำงานจริงจัง', icon: '/GIF/checklist.gif', color: 'purple' },
+  { value: 10, suffix: '+', label: 'ผู้เชี่ยวชาญ', icon: '/GIF/handshake.gif', color: 'green' },
+  { value: null, suffix: '', label: 'ประกันผลงาน', icon: '/GIF/award.gif', color: 'pink' },
 ]
 
 const carouselImages = ['/carousel/1.png', '/carousel/2.png', '/carousel/3.png']
@@ -58,9 +59,9 @@ const mainServices = [
 ]
 
 const stats = [
-  { value: '50+', label: 'ลูกค้า' },
-  { value: '100+', label: 'โปรเจกต์' },
-  { value: '5+', label: 'ปีประสบการณ์' },
+  { value: 50, suffix: '+', label: 'ลูกค้า' },
+  { value: 100, suffix: '+', label: 'โปรเจกต์' },
+  { value: 5, suffix: '+', label: 'ปีประสบการณ์' },
 ]
 
 const serviceCategories = [
@@ -196,7 +197,9 @@ export default function Home() {
             <div className="hero-stats">
               {stats.map((s) => (
                 <div key={s.label} className="hero-stat">
-                  <span className="hero-stat-value">{s.value}</span>
+                  <span className="hero-stat-value">
+                    <NumberCounter end={s.value} suffix={s.suffix} />
+                  </span>
                   <span className="hero-stat-label">{s.label}</span>
                 </div>
               ))}
@@ -213,8 +216,16 @@ export default function Home() {
                   )}
                 </div>
                 <div className="hero-trust-text">
-                  <span className="hero-trust-value">{card.value}</span>
-                  <span className="hero-trust-label">{card.label}</span>
+                  <span className="hero-trust-value">
+                    {card.value != null ? (
+                      <NumberCounter end={card.value} suffix={card.suffix} />
+                    ) : (
+                      card.label
+                    )}
+                  </span>
+                  {card.value != null && (
+                    <span className="hero-trust-label">{card.label}</span>
+                  )}
                 </div>
               </div>
             ))}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './About.css'
 import './Home.css'
+import NumberCounter from './NumberCounter'
 
 const navItems = [
     { label: 'หน้าแรก', href: '/' },
@@ -12,10 +13,10 @@ const navItems = [
 ]
 
 const aboutStats = [
-    { value: '5+', label: 'ปีประสบการณ์', icon: '/GIF/clock About.gif' },
-    { value: '50+', label: 'ลูกค้า', icon: '/GIF/loyalty About.gif' },
-    { value: '100+', label: 'โปรเจกต์สำเร็จ', icon: '/GIF/paper-document About.gif' },
-    { value: '10+', label: 'ผู้เชี่ยวชาญ', icon: '/GIF/graduation-cap About.gif' },
+    { value: 5, suffix: '+', label: 'ปีประสบการณ์', icon: '/GIF/clock About.gif' },
+    { value: 50, suffix: '+', label: 'ลูกค้า', icon: '/GIF/loyalty About.gif' },
+    { value: 100, suffix: '+', label: 'โปรเจกต์สำเร็จ', icon: '/GIF/paper-document About.gif' },
+    { value: 10, suffix: '+', label: 'ผู้เชี่ยวชาญ', icon: '/GIF/graduation-cap About.gif' },
 ]
 
 const coreValues = [
@@ -148,7 +149,9 @@ export default function About() {
                                                 stat.icon
                                             )}
                                         </span>
-                                        <span className="about-stat-value">{stat.value}</span>
+                                        <span className="about-stat-value">
+                                            <NumberCounter end={stat.value} suffix={stat.suffix} />
+                                        </span>
                                         <span className="about-stat-label">{stat.label}</span>
                                     </div>
                                 ))}
