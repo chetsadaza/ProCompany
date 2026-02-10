@@ -180,7 +180,7 @@ export default function Home() {
             </p>
             <div className="hero-ctas">
               <a href="#contact" className="cta-primary">ปรึกษาฟรี</a>
-              <a href="#services" className="cta-secondary">ดูโซลูชัน</a>
+              <a href="#services" className="cta-secondary">Solution</a>
             </div>
             <div className="hero-stats">
               {stats.map((s) => (
@@ -588,7 +588,7 @@ export default function Home() {
             ติดต่อเราเพื่อปรึกษาฟรีและดูโซลูชันที่เหมาะกับธุรกิจคุณ
           </p>
           <a href="#contact" className="cta-primary cta-large">
-            ปรึกษาฟรีดูโซลูชัน
+            ปรึกษาฟรี
           </a>
         </div>
       </section>
