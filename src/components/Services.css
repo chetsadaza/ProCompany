@@ -14,6 +14,47 @@
     min-height: 100vh;
 }
 
+/* --- Animations --- */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.animate-fade-up {
+    opacity: 0;
+    /* Important: Start invisible */
+    animation: fade-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+}
+
 /* Reuse Header/Nav styles */
 .services-header {
     position: fixed;

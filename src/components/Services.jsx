@@ -189,9 +189,10 @@ export default function Services() {
             </header>
 
             {/* Hero Section */}
+            {/* Hero Section */}
             <section className="services-hero">
-                <h1 className="services-title">Our <span className="services-title-accent">Solutions</span></h1>
-                <p className="services-subtitle">
+                <h1 className="services-title animate-fade-up">Our <span className="services-title-accent">Solutions</span></h1>
+                <p className="services-subtitle animate-fade-up delay-1">
                     โซลูชันครบวงจรด้าน AI, Digital Marketing, Cyber Security และ Automation <br />
                     เพื่อยกระดับธุรกิจของคุณสู่ยุคดิจิทัล
                 </p>
