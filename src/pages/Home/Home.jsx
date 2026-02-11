@@ -20,7 +20,7 @@ const heroTrustCards = [
     { value: null, suffix: '', label: 'ประกันผลงาน', icon: '/GIF/award.gif', color: 'pink' },
 ]
 
-const carouselImages = ['/carousel/1.png', '/carousel/2.png', '/carousel/3.png']
+const carouselImages = ['/carousel/1.png', '/carousel/2.png', '/carousel/3.png', '/carousel/4.png', '/carousel/5.png', '/carousel/6.png', '/carousel/7.png', '/carousel/8.png']
 
 const mainServices = [
     {
