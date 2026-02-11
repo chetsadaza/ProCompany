@@ -110,7 +110,8 @@
 @media (max-width: 600px) {
     .cookie-banner {
         bottom: 1rem;
-        padding: 1.25rem;
+        padding: 1.25rem 1rem;
+        width: calc(100% - 24px);
     }
 
     .cookie-actions {
@@ -120,5 +121,6 @@
     .cookie-btn {
         width: 100%;
         text-align: center;
+        padding: 12px;
     }
 }

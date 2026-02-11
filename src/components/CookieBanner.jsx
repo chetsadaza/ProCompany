@@ -26,9 +26,9 @@ export default function CookieBanner({ shouldShow }) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
+                    initial={{ y: 100, x: '-50%', opacity: 0 }}
+                    animate={{ y: 0, x: '-50%', opacity: 1 }}
+                    exit={{ y: 100, x: '-50%', opacity: 0 }}
                     transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                     className="cookie-banner"
                 >
