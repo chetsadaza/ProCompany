@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './About.css'
 import './Home.css'
 import NumberCounter from './NumberCounter'
+import Footer from './Footer'
 
 const navItems = [
     { label: 'หน้าแรก', href: '/' },
@@ -236,11 +237,8 @@ export default function About() {
                 </div>
             </section>
 
-            <footer className="footer">
-                <div className="container">
-                    <p>© บริษัท คอนเท็นต์ ดิจิตอล มาเก็ตติ้ง จำกัด</p>
-                </div>
-            </footer>
+
+            <Footer />
         </div>
     )
 }

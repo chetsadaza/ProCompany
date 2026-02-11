@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './Home.css'
 import './Contact.css'
+import Footer from './Footer'
 
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
@@ -284,11 +285,8 @@ export default function Contact() {
       </section>
 
 
-      <footer className="footer">
-        <div className="container">
-          <p>© บริษัท คอนเท็นต์ ดิจิตอล มาเก็ตติ้ง จำกัด</p>
-        </div>
-      </footer>
+
+      <Footer />
     </div>
   )
 }

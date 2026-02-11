@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import './Services.css'
+import Footer from './Footer'
 
 export default function Services() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -257,9 +258,8 @@ export default function Services() {
                 </div>
             </section>
 
-            <footer className="services-footer">
-                <p>© บริษัท คอนเท็นต์ ดิจิตอล มาเก็ตติ้ง จำกัด</p>
-            </footer>
+
+            <Footer />
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import './Home.css'
 import './Portfolio.css'
 import NumberCounter from './NumberCounter'
+import Footer from './Footer'
 
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
@@ -144,53 +145,53 @@ export default function Portfolio() {
 
         {/* Projects grid */}
         <section className="section section-portfolio-grid">
-        <div className="container">
-          <div className="portfolio-grid" ref={gridRef}>
-            {projects.map((project, index) => (
-              <motion.article
-                key={project.title}
-                className="portfolio-card"
-                initial={{ opacity: 0, y: 28 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.55,
-                  delay: index * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                onMouseMove={(e) => handleCardMouseMove(e, index)}
-                onMouseLeave={handleCardMouseLeave}
-              >
-                <div className="portfolio-card-mesh" aria-hidden="true" />
-                <div className="portfolio-card-inner">
-                  <div className="portfolio-card-header">
-                    <span className="portfolio-card-tag">
-                      <span className="portfolio-card-tag-main">{project.category}</span>
-                      <span className="portfolio-card-tag-sub">{project.tag}</span>
-                    </span>
-                    <div className="portfolio-card-title-wrap">
-                      <h2 className="portfolio-card-title">{project.title}</h2>
+          <div className="container">
+            <div className="portfolio-grid" ref={gridRef}>
+              {projects.map((project, index) => (
+                <motion.article
+                  key={project.title}
+                  className="portfolio-card"
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  onMouseMove={(e) => handleCardMouseMove(e, index)}
+                  onMouseLeave={handleCardMouseLeave}
+                >
+                  <div className="portfolio-card-mesh" aria-hidden="true" />
+                  <div className="portfolio-card-inner">
+                    <div className="portfolio-card-header">
+                      <span className="portfolio-card-tag">
+                        <span className="portfolio-card-tag-main">{project.category}</span>
+                        <span className="portfolio-card-tag-sub">{project.tag}</span>
+                      </span>
+                      <div className="portfolio-card-title-wrap">
+                        <h2 className="portfolio-card-title">{project.title}</h2>
+                      </div>
+                      <p className="portfolio-card-desc">{project.desc}</p>
                     </div>
-                    <p className="portfolio-card-desc">{project.desc}</p>
+                    <div className="portfolio-card-footer">
+                      <button
+                        type="button"
+                        className="portfolio-card-cta"
+                        ref={(el) => (buttonRefs.current[index] = el)}
+                        style={{
+                          transform: magnetic[index]
+                            ? `translate(${magnetic[index].x}px, ${magnetic[index].y}px)`
+                            : undefined,
+                        }}
+                      >
+                        ดูรายละเอียด
+                      </button>
+                    </div>
                   </div>
-                  <div className="portfolio-card-footer">
-                    <button
-                      type="button"
-                      className="portfolio-card-cta"
-                      ref={(el) => (buttonRefs.current[index] = el)}
-                      style={{
-                        transform: magnetic[index]
-                          ? `translate(${magnetic[index].x}px, ${magnetic[index].y}px)`
-                          : undefined,
-                      }}
-                    >
-                      ดูรายละเอียด
-                    </button>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
+            </div>
           </div>
-        </div>
         </section>
       </div>
 
@@ -227,11 +228,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container">
-          <p>© บริษัท คอนเท็นต์ ดิจิตอล มาเก็ตติ้ง จำกัด</p>
-        </div>
-      </footer>
+
+      <Footer />
     </div>
   )
 }
