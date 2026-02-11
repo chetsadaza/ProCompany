@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 import NumberCounter from './NumberCounter'
 import Footer from './Footer'
+import AlertPopup from './AlertPopup'
 
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
@@ -618,6 +619,7 @@ export default function Home() {
 
 
       <Footer />
+      <AlertPopup />
     </div>
   )
 }
