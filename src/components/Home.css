@@ -23,6 +23,8 @@
   color: var(--color-text);
   font-family: var(--font-sans);
   min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* --- Header / Nav --- */
@@ -1046,6 +1048,7 @@
 /* --- Services intro --- */
 .section-services-intro {
   background: var(--color-surface);
+  overflow: hidden;
 }
 
 .services-grid {
@@ -1197,6 +1200,7 @@
 /* --- Blog --- */
 .section-blog {
   background: #0B1120;
+  overflow: hidden;
 }
 
 .blog-header {
