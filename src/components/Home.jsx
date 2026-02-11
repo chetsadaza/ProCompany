@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
 import NumberCounter from './NumberCounter'
@@ -117,6 +117,11 @@ const blogPosts = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [alertFinished, setAlertFinished] = useState(false)
+
+  const handleAlertFinish = useCallback(() => {
+    setAlertFinished(true)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -620,8 +625,8 @@ export default function Home() {
 
 
       <Footer />
-      <AlertPopup />
-      <CookieBanner />
+      <AlertPopup onFinish={handleAlertFinish} />
+      <CookieBanner shouldShow={alertFinished} />
     </div>
   )
 }

@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './CookieBanner.css'
 
-export default function CookieBanner() {
+export default function CookieBanner({ shouldShow }) {
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
+        if (!shouldShow) return
+
         const consent = localStorage.getItem('cookieConsent')
         if (!consent) {
-            // Show banner after a short delay
-            const timer = setTimeout(() => setIsVisible(true), 1500)
+            // Show banner after a longer delay to ensure Alert is gone
+            const timer = setTimeout(() => setIsVisible(true), 2500)
             return () => clearTimeout(timer)
         }
-    }, [])
+    }, [shouldShow])
 
     const handleConsent = (type) => {
         localStorage.setItem('cookieConsent', type)

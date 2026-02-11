@@ -1,10 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './AlertPopup.css'
 
-export default function AlertPopup() {
+export default function AlertPopup({ onFinish }) {
     const [isOpen, setIsOpen] = useState(false)
     const [dontShowAgain, setDontShowAgain] = useState(false)
+    const onFinishRef = useRef(onFinish)
+
+    // Keep ref up to date
+    useEffect(() => {
+        onFinishRef.current = onFinish
+    }, [onFinish])
 
     useEffect(() => {
         const isHidden = localStorage.getItem('hideWarningAlert')
@@ -12,14 +18,21 @@ export default function AlertPopup() {
             // Small delay for better UX
             const timer = setTimeout(() => setIsOpen(true), 1000)
             return () => clearTimeout(timer)
+        } else {
+            // Signal finish after a tiny delay to ensure state is stable
+            const timer = setTimeout(() => {
+                onFinishRef.current?.()
+            }, 100)
+            return () => clearTimeout(timer)
         }
-    }, [])
+    }, []) // Only once on mount
 
     const handleClose = () => {
         if (dontShowAgain) {
             localStorage.setItem('hideWarningAlert', 'true')
         }
         setIsOpen(false)
+        onFinishRef.current?.()
     }
 
     return (
