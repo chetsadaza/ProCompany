@@ -4,6 +4,7 @@ import './Home.css'
 import NumberCounter from './NumberCounter'
 import Footer from './Footer'
 import AlertPopup from './AlertPopup'
+import CookieBanner from './CookieBanner'
 
 const navItems = [
   { label: 'หน้าแรก', href: '/' },
@@ -620,6 +621,7 @@ export default function Home() {
 
       <Footer />
       <AlertPopup />
+      <CookieBanner />
     </div>
   )
 }
