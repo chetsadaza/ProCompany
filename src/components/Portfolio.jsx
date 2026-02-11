@@ -118,18 +118,32 @@ export default function Portfolio() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="portfolio-hero">
-        <div className="container">
-          <h1 className="portfolio-title">ผลงานของเรา</h1>
-          <p className="portfolio-subtitle">
-            ชมโปรเจคและโซลูชันที่เราพัฒนา สำหรับลูกค้าทั่วโลก
-          </p>
-        </div>
-      </section>
+      {/* Hero + Grid with spotlight */}
+      <div className="portfolio-spotlight-wrap">
+        <div className="portfolio-spotlight" aria-hidden="true" />
+        <section className="portfolio-hero">
+          <div className="container">
+            <motion.h1
+              className="portfolio-title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              ผลงานของเรา
+            </motion.h1>
+            <motion.p
+              className="portfolio-subtitle"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            >
+              ชมโปรเจคและโซลูชันที่เราพัฒนา สำหรับลูกค้าทั่วโลก
+            </motion.p>
+          </div>
+        </section>
 
-      {/* Projects grid */}
-      <section className="section section-portfolio-grid">
+        {/* Projects grid */}
+        <section className="section section-portfolio-grid">
         <div className="container">
           <div className="portfolio-grid" ref={gridRef}>
             {projects.map((project, index) => (
@@ -177,7 +191,8 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* Stats */}
       <section className="section portfolio-stats-section">

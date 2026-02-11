@@ -4,7 +4,33 @@
   min-height: 100vh;
 }
 
+/* Spotlight from top (เหมือนในรูป) */
+.portfolio-spotlight-wrap {
+  position: relative;
+}
+
+.portfolio-spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 720px);
+  height: 160%;
+  max-height: 1200px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 90% 80% at 50% -10%,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.06) 35%,
+    rgba(148, 163, 184, 0.04) 55%,
+    transparent 72%
+  );
+}
+
 .portfolio-hero {
+  position: relative;
+  z-index: 1;
   padding: 8rem 1.5rem 4rem;
   text-align: center;
   background: radial-gradient(circle at top, rgba(99, 102, 241, 0.18), transparent 65%);
@@ -24,6 +50,8 @@
 }
 
 .section-portfolio-grid {
+  position: relative;
+  z-index: 1;
   background: var(--color-bg);
 }
 
@@ -66,11 +94,13 @@
 
 .portfolio-card:hover {
   transform: translateY(-12px);
-  border-color: rgba(129, 140, 248, 0.35);
+  border-color: rgba(129, 140, 248, 0.5);
   box-shadow:
     0 24px 56px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 0 48px rgba(99, 102, 241, 0.18);
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 32px rgba(99, 102, 241, 0.35),
+    0 0 64px rgba(99, 102, 241, 0.18),
+    inset 0 0 40px rgba(99, 102, 241, 0.06);
 }
 
 /* 2. Moving Mesh Background (hover only) */
