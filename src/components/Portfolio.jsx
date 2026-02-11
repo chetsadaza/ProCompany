@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, useInView } from 'framer-motion'
 import './Home.css'
 import './Portfolio.css'
 import NumberCounter from './NumberCounter'
@@ -58,8 +59,32 @@ const portfolioStats = [
   { value: 10, suffix: '+', label: 'ผู้เชี่ยวชาญ' },
 ]
 
+const MAGNETIC_STRENGTH = 0.22
+const MAGNETIC_CLAMP = 10
+
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [magnetic, setMagnetic] = useState({})
+  const buttonRefs = useRef([])
+  const gridRef = useRef(null)
+  const isInView = useInView(gridRef, { once: true, amount: 0.15 })
+
+  const handleCardMouseMove = (e, index) => {
+    const btn = buttonRefs.current[index]
+    if (!btn) return
+    const rect = btn.getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    let dx = (e.clientX - cx) * MAGNETIC_STRENGTH
+    let dy = (e.clientY - cy) * MAGNETIC_STRENGTH
+    dx = Math.max(-MAGNETIC_CLAMP, Math.min(MAGNETIC_CLAMP, dx))
+    dy = Math.max(-MAGNETIC_CLAMP, Math.min(MAGNETIC_CLAMP, dy))
+    setMagnetic((prev) => ({ ...prev, [index]: { x: dx, y: dy } }))
+  }
+
+  const handleCardMouseLeave = () => {
+    setMagnetic({})
+  }
 
   return (
     <div className="home portfolio-page">
@@ -106,23 +131,49 @@ export default function Portfolio() {
       {/* Projects grid */}
       <section className="section section-portfolio-grid">
         <div className="container">
-          <div className="portfolio-grid">
-            {projects.map((project) => (
-              <article key={project.title} className="portfolio-card">
-                <div className="portfolio-card-header">
-                  <span className="portfolio-card-tag">
-                    <span className="portfolio-card-tag-main">{project.category}</span>
-                    <span className="portfolio-card-tag-sub">{project.tag}</span>
-                  </span>
-                  <h2 className="portfolio-card-title">{project.title}</h2>
-                  <p className="portfolio-card-desc">{project.desc}</p>
+          <div className="portfolio-grid" ref={gridRef}>
+            {projects.map((project, index) => (
+              <motion.article
+                key={project.title}
+                className="portfolio-card"
+                initial={{ opacity: 0, y: 28 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.55,
+                  delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                onMouseMove={(e) => handleCardMouseMove(e, index)}
+                onMouseLeave={handleCardMouseLeave}
+              >
+                <div className="portfolio-card-mesh" aria-hidden="true" />
+                <div className="portfolio-card-inner">
+                  <div className="portfolio-card-header">
+                    <span className="portfolio-card-tag">
+                      <span className="portfolio-card-tag-main">{project.category}</span>
+                      <span className="portfolio-card-tag-sub">{project.tag}</span>
+                    </span>
+                    <div className="portfolio-card-title-wrap">
+                      <h2 className="portfolio-card-title">{project.title}</h2>
+                    </div>
+                    <p className="portfolio-card-desc">{project.desc}</p>
+                  </div>
+                  <div className="portfolio-card-footer">
+                    <button
+                      type="button"
+                      className="portfolio-card-cta"
+                      ref={(el) => (buttonRefs.current[index] = el)}
+                      style={{
+                        transform: magnetic[index]
+                          ? `translate(${magnetic[index].x}px, ${magnetic[index].y}px)`
+                          : undefined,
+                      }}
+                    >
+                      ดูรายละเอียด
+                    </button>
+                  </div>
                 </div>
-                <div className="portfolio-card-footer">
-                  <button type="button" className="portfolio-card-cta">
-                    ดูรายละเอียด
-                  </button>
-                </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
