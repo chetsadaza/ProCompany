@@ -45,11 +45,11 @@ export default function Footer() {
                     <div className="footer-col">
                         <h4 className="footer-heading">โซลูชันของเรา</h4>
                         <ul className="footer-links">
-                            <li><Link to="/services">Digital Marketing</Link></li>
-                            <li><Link to="/services">AI & Machine Learning</Link></li>
-                            <li><Link to="/services">Cyber Security</Link></li>
-                            <li><Link to="/services">Automation</Link></li>
-                            <li><Link to="/services">Brand Development</Link></li>
+                            <li><Link to="/services#digital-marketing">Digital Marketing</Link></li>
+                            <li><Link to="/services#ai-ml">AI & Machine Learning</Link></li>
+                            <li><Link to="/services#cyber-security">Cyber Security</Link></li>
+                            <li><Link to="/services#automation">Automation</Link></li>
+                            <li><Link to="/services#brand-development">Brand Development</Link></li>
                         </ul>
                     </div>
 

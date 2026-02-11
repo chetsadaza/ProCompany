@@ -30,6 +30,7 @@ export default function Services() {
 
     const solutions = [
         {
+            id: 'digital-marketing',
             title: 'Digital Marketing Solutions',
             desc: 'โซลูชันการตลาดดิจิทัลแบบครบวงจร เพื่อเพิ่มการมองเห็นและยอดขาย',
             items: [
@@ -40,6 +41,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'marketing-strategy',
             title: 'Marketing Strategy & Consulting',
             desc: 'โซลูชันกลยุทธ์การตลาดเชิงลึก เพื่อเพิ่มศักยภาพการแข่งขันของธุรกิจ',
             items: [
@@ -51,6 +53,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'growth-marketing',
             title: 'Growth Marketing Solutions',
             desc: 'โซลูชันการเติบโตธุรกิจแบบ Data-Driven พร้อมระบบวัดผลที่ชัดเจน',
             items: [
@@ -62,6 +65,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'brand-development',
             title: 'Brand Development Solutions',
             desc: 'โซลูชันพัฒนาแบรนด์ครบวงจร สร้างความโดดเด่นและจดจำในตลาด',
             items: [
@@ -73,6 +77,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'content-creative',
             title: 'Content & Creative Solutions',
             desc: 'โซลูชันคอนเทนต์ครบวงจร สร้างการมีส่วนร่วมและสร้างแบรนด์',
             items: [
@@ -84,6 +89,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'seo-performance',
             title: 'SEO & Performance Marketing',
             desc: 'โซลูชันเพิ่มการมองเห็นและยอดขาย ด้วยกลยุทธ์ที่วัดผลได้',
             items: [
@@ -95,6 +101,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'cyber-security',
             title: 'Cyber Security Solutions',
             desc: 'โซลูชันรักษาความปลอดภัยระดับองค์กร ปกป้องข้อมูลและธุรกิจอย่างมืออาชีพ',
             items: [
@@ -106,6 +113,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'automation',
             title: 'Business Automation Solutions',
             desc: 'โซลูชันระบบอัตโนมัติระดับองค์กร เพิ่มประสิทธิภาพและลดต้นทุน',
             items: [
@@ -117,6 +125,7 @@ export default function Services() {
             ]
         },
         {
+            id: 'ai-ml',
             title: 'AI & Machine Learning Solutions',
             desc: 'โซลูชัน AI ระดับองค์กร ยกระดับธุรกิจด้วยปัญญาประดิษฐ์',
             items: [
@@ -156,6 +165,35 @@ export default function Services() {
         { label: 'ติดต่อเรา', href: '/contact' },
     ]
 
+    // Handle Deep Linking to Specific Solutions
+    React.useEffect(() => {
+        const hash = window.location.hash.replace('#', '')
+        if (hash) {
+            const index = solutions.findIndex(s => s.id === hash)
+            if (index !== -1) {
+                // Wait for layout to settle
+                setTimeout(() => {
+                    const section = targetRef.current
+                    if (section) {
+                        const totalScrollableHeight = section.scrollHeight - window.innerHeight
+                        // Calculate where index i would be in the [0, 1] range
+                        // Since we have N cards, and the last card is at 100% of the transform
+                        // BUT the transform range is 0 to 1 based on the container length
+                        // We need to find the scroll percentage that aligns card i with the viewport
+
+                        const scrollPercent = index / (solutions.length - 1)
+                        const targetY = section.offsetTop + (scrollPercent * totalScrollableHeight)
+
+                        window.scrollTo({
+                            top: targetY,
+                            behavior: 'smooth'
+                        })
+                    }
+                }, 100)
+            }
+        }
+    }, [location.hash, solutions.length])
+
     return (
         <div className="services-page">
             {/* Navigation */}
@@ -190,7 +228,6 @@ export default function Services() {
             </header>
 
             {/* Hero Section */}
-            {/* Hero Section */}
             <section className="services-hero">
                 <h1 className="services-title animate-fade-up">Our <span className="services-title-accent">Solutions</span></h1>
                 <p className="services-subtitle animate-fade-up delay-1">
@@ -207,7 +244,7 @@ export default function Services() {
                         className="horizontal-track"
                     >
                         {solutions.map((item, index) => (
-                            <div key={index} className="horizontal-card">
+                            <div key={index} id={item.id} className="horizontal-card">
                                 <div className="h-card-content">
                                     <div className="h-card-header">
                                         <h3 className="h-card-title">{item.title}</h3>
