@@ -152,7 +152,7 @@ export default function Services() {
         { label: 'เกี่ยวกับเรา', href: '/about' },
         { label: 'บริการ', href: '/services' },
         { label: 'ผลงาน', href: '/portfolio' },
-        { label: 'ติดต่อเรา', href: '/#contact' },
+        { label: 'ติดต่อเรา', href: '/contact' },
     ]
 
     return (
@@ -181,7 +181,7 @@ export default function Services() {
                                 {item.label}
                             </Link>
                         ))}
-                        <Link to="/#contact" className="services-nav-cta" onClick={() => setMenuOpen(false)}>
+                        <Link to="/contact" className="services-nav-cta" onClick={() => setMenuOpen(false)}>
                             ปรึกษาฟรี
                         </Link>
                     </nav>

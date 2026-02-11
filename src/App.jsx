@@ -4,6 +4,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Services from './components/Services'
 import Portfolio from './components/Portfolio'
+import Contact from './components/Contact'
 import './App.css'
 
 function ScrollToTop() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   )

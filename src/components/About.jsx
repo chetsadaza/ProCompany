@@ -9,7 +9,7 @@ const navItems = [
     { label: 'เกี่ยวกับเรา', href: '/about' },
     { label: 'บริการ', href: '/services' },
     { label: 'ผลงาน', href: '/portfolio' },
-    { label: 'ติดต่อเรา', href: '/#contact' },
+    { label: 'ติดต่อเรา', href: '/contact' },
 ]
 
 const aboutStats = [
@@ -99,7 +99,7 @@ export default function About() {
                                 {item.label}
                             </Link>
                         ))}
-                        <a href="/#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+                        <a href="/contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
                             ปรึกษาฟรี
                         </a>
                     </nav>
@@ -230,7 +230,7 @@ export default function About() {
                 <div className="container text-center">
                     <h2 className="section-title">พร้อมที่จะร่วมงานกับเราหรือยัง?</h2>
                     <p className="section-desc">เริ่มต้นเส้นทางดิจิทัลของคุณด้วยทีมงานมืออาชีพ</p>
-                    <a href="/#contact" className="cta-primary cta-large">
+                    <a href="/contact" className="cta-primary cta-large">
                         ติดต่อทีมงานของเรา
                     </a>
                 </div>

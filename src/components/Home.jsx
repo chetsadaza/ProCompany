@@ -8,7 +8,7 @@ const navItems = [
   { label: 'เกี่ยวกับเรา', href: '/about' },
   { label: 'บริการ', href: '/services' },
   { label: 'ผลงาน', href: '/portfolio' },
-  { label: 'ติดต่อเรา', href: '#contact' },
+  { label: 'ติดต่อเรา', href: '/contact' },
 ]
 
 const heroTrustCards = [
@@ -170,7 +170,7 @@ export default function Home() {
                 </Link>
               )
             ))}
-            <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+            <a href="/contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
               ปรึกษาฟรี
             </a>
           </nav>
@@ -191,7 +191,7 @@ export default function Home() {
               นำเสนอโซลูชัน AI, Digital Marketing, Cyber Security และ Automation เพื่อยกระดับธุรกิจของคุณสู่อนาคต
             </p>
             <div className="hero-ctas">
-              <a href="#contact" className="cta-primary">ปรึกษาฟรี</a>
+              <a href="/contact" className="cta-primary">ปรึกษาฟรี</a>
               <a href="#services" className="cta-secondary">Solution</a>
             </div>
             <div className="hero-stats">
@@ -391,7 +391,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href="#contact" className="cta-primary">
+              <a href="/contact" className="cta-primary">
                 รับคำปรึกษาฟรี
               </a>
             </div>
@@ -480,7 +480,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href="#contact" className="cta-primary cyber-cta">
+              <a href="/contact" className="cta-primary cyber-cta">
                 รับคำปรึกษาฟรี
               </a>
             </div>
@@ -544,7 +544,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <a href="#contact" className="cta-primary automation-cta">
+              <a href="/contact" className="cta-primary automation-cta">
                 รับคำปรึกษาฟรี
               </a>
             </div>
@@ -588,7 +588,7 @@ export default function Home() {
                   <span>{post.date}</span>
                   <span>{post.author}</span>
                 </div>
-                <a href="#contact" className="blog-card-cta">
+                <a href="/contact" className="blog-card-cta">
                   {post.ctaLead} <strong>ปรึกษาเรา</strong>
                 </a>
               </article>
@@ -609,7 +609,7 @@ export default function Home() {
           <p className="section-desc">
             ติดต่อเราเพื่อปรึกษาฟรีและดูโซลูชันที่เหมาะกับธุรกิจคุณ
           </p>
-          <a href="#contact" className="cta-primary cta-large">
+          <a href="/contact" className="cta-primary cta-large">
             ปรึกษาฟรี
           </a>
         </div>

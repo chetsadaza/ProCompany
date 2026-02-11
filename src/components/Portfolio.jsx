@@ -10,7 +10,7 @@ const navItems = [
   { label: 'เกี่ยวกับเรา', href: '/about' },
   { label: 'บริการ', href: '/services' },
   { label: 'ผลงาน', href: '/portfolio' },
-  { label: 'ติดต่อเรา', href: '/#contact' },
+  { label: 'ติดต่อเรา', href: '/contact' },
 ]
 
 const projects = [
@@ -111,7 +111,7 @@ export default function Portfolio() {
                 {item.label}
               </Link>
             ))}
-            <a href="/#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+            <a href="/contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
               ปรึกษาฟรี
             </a>
           </nav>
@@ -221,7 +221,7 @@ export default function Portfolio() {
           <p className="section-desc">
             ปรึกษาฟรี! พูดคุยกับทีมผู้เชี่ยวชาญวันนี้
           </p>
-          <a href="/#contact" className="cta-primary cta-large">
+          <a href="/contact" className="cta-primary cta-large">
             รับคำปรึกษาฟรี
           </a>
         </div>
