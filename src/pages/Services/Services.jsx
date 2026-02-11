@@ -199,7 +199,6 @@ export default function Services() {
             {/* Navigation */}
             <header className="services-header">
                 <div className="services-header-inner">
-                    <Link to="/" className="logo-text">CDM</Link>
                     <button
                         className="menu-toggle"
                         onClick={() => setMenuOpen(!menuOpen)}

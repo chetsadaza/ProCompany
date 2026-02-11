@@ -47,7 +47,6 @@ export default function Contact() {
         <div className="home contact-page">
             <header className="header">
                 <div className="header-inner">
-                    <Link to="/" className="logo-text">CDM</Link>
                     <button
                         className="menu-toggle"
                         onClick={() => setMenuOpen(!menuOpen)}

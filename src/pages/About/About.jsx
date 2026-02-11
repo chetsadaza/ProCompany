@@ -80,7 +80,6 @@ export default function About() {
         <div className="home about-page">
             <header className="header">
                 <div className="header-inner">
-                    <Link to="/" className="logo-text">CDM</Link>
                     <button
                         className="menu-toggle"
                         onClick={() => setMenuOpen(!menuOpen)}

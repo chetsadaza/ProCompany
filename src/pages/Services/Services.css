@@ -58,22 +58,45 @@
 /* Reuse Header/Nav styles */
 .services-header {
     position: fixed;
-    top: 0;
+    top: 1.25rem;
     left: 0;
     right: 0;
-    z-index: 100;
-    background: rgba(11, 17, 32, 0.9);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    background: transparent;
+    pointer-events: none;
+    border-bottom: none;
 }
 
 .services-header-inner {
+    width: fit-content;
     max-width: var(--container);
-    margin: 0 auto;
-    padding: 0.75rem 1.25rem;
+    margin: 0 1.5rem 0 auto;
+    padding: 0.4rem 0.4rem 0.4rem 1.25rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    background: rgba(11, 17, 32, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 100px;
+    pointer-events: auto;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+@media (max-width: 768px) {
+    .services-header {
+        top: 0.75rem;
+    }
+
+    .services-header-inner {
+        margin: 0 0.75rem;
+        width: auto;
+        justify-content: space-between;
+        padding: 0.4rem 0.4rem 0.4rem 1rem;
+    }
 }
 
 .logo-text {

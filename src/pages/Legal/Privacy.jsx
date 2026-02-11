@@ -142,7 +142,6 @@ export default function Privacy() {
         <div className="home privacy-page">
             <header className="header">
                 <div className="header-inner">
-                    <Link to="/" className="logo-text">CDM</Link>
                     <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
                         <span></span><span></span><span></span>
                     </button>
