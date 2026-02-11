@@ -5,6 +5,7 @@ import About from './components/About'
 import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
+import Privacy from './components/Privacy'
 import './App.css'
 
 function ScrollToTop() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
     </Router>
   )
