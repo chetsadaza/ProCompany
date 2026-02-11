@@ -6,6 +6,7 @@ import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Privacy from './components/Privacy'
+import Terms from './components/Terms'
 import './App.css'
 
 function ScrollToTop() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
     </Router>
   )
