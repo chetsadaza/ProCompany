@@ -125,6 +125,21 @@ export default function Terms() {
 
     const toggleSection = (id) => {
         setExpandedSection(expandedSection === id ? null : id)
+
+        // Smooth scroll to the section
+        setTimeout(() => {
+            const element = document.getElementById(id);
+            if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
     }
 
     return (
@@ -178,7 +193,11 @@ export default function Terms() {
 
                             <div className="terms-accordion">
                                 {sections.map((section) => (
-                                    <div key={section.id} className={`accordion-item ${expandedSection === section.id ? 'expanded' : ''}`}>
+                                    <div
+                                        key={section.id}
+                                        id={section.id}
+                                        className={`accordion-item ${expandedSection === section.id ? 'expanded' : ''}`}
+                                    >
                                         <button
                                             className="accordion-header"
                                             onClick={() => toggleSection(section.id)}

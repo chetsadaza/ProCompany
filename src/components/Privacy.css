@@ -138,6 +138,7 @@
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s;
+    scroll-margin-top: 100px;
 }
 
 .accordion-item.expanded {
@@ -239,6 +240,7 @@
     border-radius: 24px;
     padding: 3rem;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    scroll-margin-top: 100px;
 }
 
 .privacy-contact-callout.highlight {
