@@ -1,0 +1,297 @@
+.portfolio-page {
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+/* Spotlight from top (เหมือนในรูป) */
+.portfolio-spotlight-wrap {
+    position: relative;
+}
+
+.portfolio-spotlight {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 720px);
+    height: 160%;
+    max-height: 1200px;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse 90% 80% at 50% -10%,
+            rgba(255, 255, 255, 0.14) 0%,
+            rgba(255, 255, 255, 0.06) 35%,
+            rgba(148, 163, 184, 0.04) 55%,
+            transparent 72%);
+}
+
+.portfolio-hero {
+    position: relative;
+    z-index: 1;
+    padding: 8rem 1.5rem 4rem;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(99, 102, 241, 0.18), transparent 65%);
+}
+
+.portfolio-title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.portfolio-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.section-portfolio-grid {
+    position: relative;
+    z-index: 1;
+    background: var(--color-bg);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 1. Glassmorphism & Floating Elevation */
+.portfolio-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.4s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(129, 140, 248, 0.5);
+    box-shadow:
+        0 24px 56px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 32px rgba(99, 102, 241, 0.35),
+        0 0 64px rgba(99, 102, 241, 0.18),
+        inset 0 0 40px rgba(99, 102, 241, 0.06);
+}
+
+/* 2. Moving Mesh Background (hover only) */
+.portfolio-card-mesh {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(99, 102, 241, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 70% at 80% 70%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(30, 27, 75, 0.4) 0%, transparent 60%);
+    background-size: 200% 200%;
+    animation: portfolio-mesh-move 8s ease-in-out infinite;
+}
+
+.portfolio-card:hover .portfolio-card-mesh {
+    opacity: 1;
+}
+
+@keyframes portfolio-mesh-move {
+
+    0%,
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%, 0% 0%, 80% 80%;
+    }
+}
+
+.portfolio-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.portfolio-card-header {
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Tag spotlight (Bento micro-interaction) */
+.portfolio-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card-tag {
+    transform: scale(1.04);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.portfolio-card-tag-main {
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.portfolio-card-tag-sub {
+    opacity: 0.85;
+}
+
+/* 4. Masked Text Reveal (shine on title) */
+.portfolio-card-title-wrap {
+    overflow: hidden;
+    margin: 1.1rem 0 0.75rem;
+}
+
+.portfolio-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    background: linear-gradient(105deg,
+            #f1f5f9 0%,
+            #f1f5f9 35%,
+            rgba(255, 255, 255, 0.75) 50%,
+            #f1f5f9 65%,
+            #f1f5f9 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: background-position 0.6s ease;
+}
+
+.portfolio-card:hover .portfolio-card-title {
+    animation: portfolio-title-shine 1.8s ease-in-out 1;
+}
+
+@keyframes portfolio-title-shine {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.portfolio-card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.portfolio-card-footer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Magnetic button: base styles, transform applied by JS */
+.portfolio-card-cta {
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
+}
+
+.portfolio-card-cta:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(129, 140, 248, 0.7);
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.25);
+}
+
+.portfolio-stats-section {
+    background: var(--color-surface);
+}
+
+.portfolio-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .portfolio-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.portfolio-stat-card {
+    padding: 1.8rem 1.5rem;
+    border-radius: var(--radius-lg);
+    background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.22), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.8),
+        0 0 0 1px rgba(15, 23, 42, 0.6);
+    text-align: left;
+}
+
+.portfolio-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f9fafb;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-stat-label {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+.portfolio-cta-section {
+    background: var(--color-bg);
+    text-align: center;
+}

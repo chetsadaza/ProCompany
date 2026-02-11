@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import './Services.css'
-import Footer from './Footer'
+import Footer from '../../components/Footer/Footer'
 
 export default function Services() {
     const [menuOpen, setMenuOpen] = useState(false)

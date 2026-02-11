@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Terms.css'
-import './Home.css'
-import Footer from './Footer'
+import '../Home/Home.css'
+import Footer from '../../components/Footer/Footer'
 
 const navItems = [
     { label: 'หน้าแรก', href: '/' },

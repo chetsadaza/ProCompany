@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './About.css'
-import './Home.css'
-import NumberCounter from './NumberCounter'
-import Footer from './Footer'
+import '../Home/Home.css'
+import NumberCounter from '../../components/NumberCounter/NumberCounter'
+import Footer from '../../components/Footer/Footer'
 
 const navItems = [
     { label: 'หน้าแรก', href: '/' },
